@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  Dark mode  */
+.dark { color-scheme: dark; }
+
+/* Backgrounds */
+.dark .bg-slate-50 { background-color: #0b1220; }
+.dark .bg-white { background-color: #1e293b; }
+.dark .bg-slate-100 { background-color: #334155; }
+.dark .hover\:bg-slate-100:hover { background-color: #334155; }
+.dark .hover\:bg-slate-50:hover { background-color: #273449; }
+.dark .hover\:bg-red-50:hover { background-color: rgba(239, 68, 68, 0.15); }
+
+/* Text */
+.dark .text-slate-900,
+.dark .text-gray-900 { color: #f1f5f9; }
+.dark .text-slate-800 { color: #e2e8f0; }
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-gray-700 { color: #cbd5e1; }
+.dark .text-slate-500,
+.dark .text-gray-600 { color: #94a3b8; }
+.dark .text-slate-400 { color: #94a3b8; }
+
+/* Borders */
+.dark .border-b,
+.dark .border-t { border-color: #334155; }
+.dark .border-slate-200,
+.dark .border-slate-300,
+.dark .border-gray-200,
+.dark .border-gray-300 { border-color: #334155; }
+
+/* Colored chips / alerts */
+.dark .bg-blue-50 { background-color: rgba(59, 130, 246, 0.12); }
+.dark .bg-blue-100 { background-color: rgba(59, 130, 246, 0.2); }
+.dark .text-blue-700 { color: #93c5fd; }
+.dark .bg-green-100 { background-color: rgba(34, 197, 94, 0.15); }
+.dark .text-green-600,
+.dark .text-green-800 { color: #86efac; }
+.dark .bg-red-100 { background-color: rgba(239, 68, 68, 0.15); }
+.dark .text-red-600 { color: #f87171; }
+.dark .border-green-200 { border-color: rgba(34, 197, 94, 0.35); }
+.dark .border-red-200 { border-color: rgba(239, 68, 68, 0.35); }
+
+/* Form fields */
+.dark input[type='text'],
+.dark input[type='email'],
+.dark input[type='password'],
+.dark input[type='search'],
+.dark input[type='number'],
+.dark input[type='url'],
+.dark input[type='date'],
+.dark textarea,
+.dark select {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+.dark ::placeholder { color: #64748b; }
+
+/*  Background image (url ek layout eken  enw)  */
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f8fafc;
+}
+
+.dark body {
+    background-color: #020617;
+}
+
+/* Glass look (dark mode)  */
+/* NOTE: .dropdown-solid ekata glass apply wenne na (dropdown eka solid wenna one) */
+.dark .bg-white:not(.dropdown-solid),
+.dark .bg-slate-800 {
+    background-color: rgba(15, 23, 42, 0.55) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.dark header.bg-white,
+.dark aside.bg-slate-900 {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .border-slate-200 {
+    border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+/*  Dropdown menus (Settings / Logout, Notifications): solid  */
+.dark .dropdown-solid {
+    background-color: #0f172a !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/*  Glass look (light mode)  */
+html:not(.dark) main .bg-white {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/*  Light mode: cards valin pita thiyen text kiywanna  */
+html:not(.dark) main > div > div > h2,
+html:not(.dark) main > div > div > p,
+html:not(.dark) main .text-slate-500:not(.bg-white *),
+html:not(.dark) main .text-blue-600:not(.bg-white *) {
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+}
