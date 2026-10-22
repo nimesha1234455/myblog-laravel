@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\SmtpSettingController;
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\Auth\PermissionController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostInteractionController;
 use App\Http\Controllers\ProfileController;
