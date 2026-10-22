@@ -1,93 +1,100 @@
-# blogapp
+# MyBlog
 
+A full-featured blog platform built with **Laravel**, with role-based access, a post approval workflow, social features and an admin dashboard.
 
+**Live demo:** https://nimesha.slhosted.lk/
 
-## Getting started
+## Features
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- **Authentication:** register, login, password reset, email verification and Google sign-in
+- **Roles and permissions:** admin / reader / visitor, with a permission manager in the admin panel
+- **Posts:** create, edit, drafts, trash, categories, cover images and a post approval workflow (pending posts)
+- **Discovery:** category filtering, search and trending posts
+- **Engagement:** comments, likes and saved (bookmarked) posts
+- **Social:** follow authors and a "Following" feed
+- **Notifications:** in-app and email notifications for new posts and comments
+- **Admin dashboard:** post stats, analytics, activity logs and weekly summary emails
+- **Admin settings:** configurable SMTP email settings from the admin panel
+- **UI:** responsive glass-style design with dark mode
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Tech Stack
 
-## Add your files
+- **Backend:** Laravel, PHP, Laravel Breeze
+- **Frontend:** Blade, Tailwind CSS, Alpine.js, Vite
+- **Database:** MySQL
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Getting Started
 
+### Requirements
+
+- PHP 8.2 or higher
+- Composer
+- Node.js and npm
+- MySQL (for example via XAMPP)
+
+### Installation
+
+1. Clone the repository
+
+```bash
+   git clone https://github.com/nimesha1234455/myblog-laravel.git
+   cd myblog-laravel
 ```
-cd existing_repo
-git remote add origin https://gitlab.serverclubapp.com/nimesha_mad/blogapp.git
-git branch -M main
-git push -uf origin main
+
+2. Install dependencies
+
+```bash
+   composer install
+   npm install
 ```
 
-## Integrate with your tools
+3. Create the environment file and generate the app key
 
-- [ ] [Set up project integrations](https://gitlab.serverclubapp.com/nimesha_mad/blogapp/-/settings/integrations)
+```bash
+   cp .env.example .env
+   php artisan key:generate
+```
 
-## Collaborate with your team
+   On Windows Command Prompt, use `copy .env.example .env` instead of `cp`.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+4. Create a MySQL database, then set your database details in `.env`
 
-## Test and Deploy
+```env
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+```
 
-Use the built-in continuous integration in GitLab.
+5. Run the migrations and seeders
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+```bash
+   php artisan migrate --seed
+```
 
-***
+6. Link the storage folder (for uploaded images)
 
-# Editing this README
+```bash
+   php artisan storage:link
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+7. Build the frontend assets and start the server
 
-## Suggestions for a good README
+```bash
+   npm run build
+   php artisan serve
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+   Open http://localhost:8000 in your browser.
 
-## Name
-Choose a self-explaining name for your project.
+### Optional configuration
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+- **Google sign-in:** add your Google OAuth credentials to `.env` (see `config/services.php` for the variable names).
+- **Emails:** configure SMTP either in `.env` or from the SMTP Settings page in the admin panel.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Author
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+**Nimesha Madushani**
+HNDIT student at SLIATE ATI Badulla | Web Developer Intern at ServerClub.LK
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- LinkedIn: https://www.linkedin.com/in/nimesha-madushani-bb5263371
+- GitHub: https://github.com/nimesha1234455
